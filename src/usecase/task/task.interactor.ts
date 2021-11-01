@@ -1,13 +1,13 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { TaskPresenterInterface } from 'adapter/presenter/task.presenter';
 import { Task } from 'domain/entity/task.entity';
-import { TaskUsecase } from './task.usecase';
+import { TaskUseCase } from './taskUseCase';
 import { TaskRepository } from 'domain/repository/task.repository';
 import { InjectRepository } from '@nestjs/typeorm';
 import { TaskLocalRepository } from 'infrastructure/persistence/local/typeorm/repository/task.repository';
 
 @Injectable()
-export class TaskInteractor implements TaskUsecase {
+export class TaskInteractor implements TaskUseCase {
   private tasks: Task[] = [];
 
   constructor(

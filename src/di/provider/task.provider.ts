@@ -1,6 +1,6 @@
 import { Provider } from '@nestjs/common';
 import { TaskPresenter } from 'adapter/presenter/task.presenter';
-import { TaskInteractor } from 'usecase/taks/task.interactor';
+import { TaskInteractor } from 'usecase/task/task.interactor';
 import { TaskLocalRepository } from 'infrastructure/persistence/local/typeorm/repository/task.repository';
 
 const TaskProvider: Provider[] = [

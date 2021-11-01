@@ -9,12 +9,12 @@ import {
   Post,
 } from '@nestjs/common';
 import { Task } from 'domain/entity/task.entity';
-import { TaskUsecase } from 'usecase/taks/task.usecase';
+import { TaskUseCase } from 'usecase/task/taskUseCase';
 import { TaskCreateDto } from 'domain/dto/task.dto';
 
 @Controller('tasks')
 export class TaskHandler {
-  constructor(@Inject('TaskUseCase') private useCase: TaskUsecase) {}
+  constructor(@Inject('TaskUseCase') private useCase: TaskUseCase) {}
 
   @Get()
   getAllTasks(): Promise<Task[]> {
