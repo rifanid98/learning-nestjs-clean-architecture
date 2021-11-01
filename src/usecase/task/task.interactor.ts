@@ -1,7 +1,7 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { TaskPresenterInterface } from 'adapter/presenter/task.presenter';
 import { Task } from 'domain/entity/task.entity';
-import { TaskUseCase } from './taskUseCase';
+import { TaskUseCase } from './task.usecase';
 import { TaskRepository } from 'domain/repository/task.repository';
 import { InjectRepository } from '@nestjs/typeorm';
 import { TaskLocalRepository } from 'infrastructure/persistence/local/typeorm/repository/task.repository';

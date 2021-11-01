@@ -11,7 +11,7 @@ export enum UserStatus {
 }
 
 export class User implements UserEntityInterface {
-  id: string;
-  email: string;
-  password: string;
+  id?: string;
+  email?: string;
+  password?: string;
 }

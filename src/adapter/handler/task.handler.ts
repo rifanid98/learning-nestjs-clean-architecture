@@ -9,7 +9,7 @@ import {
   Post,
 } from '@nestjs/common';
 import { Task } from 'domain/entity/task.entity';
-import { TaskUseCase } from 'usecase/task/taskUseCase';
+import { TaskUseCase } from 'usecase/task/task.usecase';
 import { TaskCreateDto } from 'domain/dto/task.dto';
 
 @Controller('tasks')

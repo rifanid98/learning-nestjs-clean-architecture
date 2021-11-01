@@ -1,22 +1,20 @@
-import {
-  Controller,
-  Inject,
-  NotImplementedException,
-  Post,
-} from '@nestjs/common';
+import { Body, Controller, Inject, Post, UseFilters } from '@nestjs/common';
 import { AuthUseCase } from 'usecase/auth/auth.usecase';
+import { AuthSignInDto, AuthSignUpDto } from 'domain/dto/auth.dto';
+import { CustomExceptionFilter } from 'common/exception-filter';
 
 @Controller('auth')
 export class AuthHandler {
   constructor(@Inject('AuthUseCase') private useCase: AuthUseCase) {}
 
-  @Post('/login')
-  login() {
-    throw new NotImplementedException();
+  @Post('/signin')
+  signin(@Body() auth: AuthSignInDto) {
+    return this.useCase.signin(auth);
   }
 
   @Post('/signup')
-  signup() {
-    throw new NotImplementedException();
+  @UseFilters(CustomExceptionFilter)
+  signup(@Body() auth: AuthSignUpDto) {
+    return this.useCase.signup(auth);
   }
 }

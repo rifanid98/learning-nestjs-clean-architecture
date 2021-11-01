@@ -8,11 +8,7 @@ export class UserLocalRepository
   implements UserRepository
 {
   createUser(user: User): Promise<User> {
-    return Promise.resolve(undefined);
-  }
-
-  deleteTaskById(id: string): Promise<DeleteResult> {
-    return Promise.resolve(undefined);
+    return this.save(user);
   }
 
   getAllUsers(): Promise<User[]> {
