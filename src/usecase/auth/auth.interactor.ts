@@ -12,6 +12,7 @@ import { User } from 'domain/entity/user.entity';
 import { hash, verify } from 'common/hash';
 import { AuthLocalRepository } from 'infrastructure/persistence/local/typeorm/repository/auth.repository';
 import { AuthRepository } from 'domain/repository/auth.repository';
+import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class AuthInteractor implements AuthUseCase {
@@ -20,6 +21,7 @@ export class AuthInteractor implements AuthUseCase {
     private presenter: AuthPresenterInterface,
     @InjectRepository(AuthLocalRepository)
     private repository: AuthRepository,
+    private jwt: JwtService,
   ) {}
 
   async signup(auth: AuthSignUpDto): Promise<User> {
@@ -43,6 +45,9 @@ export class AuthInteractor implements AuthUseCase {
     if (!(await verify(auth.password, result.password))) {
       throw new BadRequestException('Credentials is invalid');
     }
+
+    const token = this.jwt.sign(this.presenter.json(result));
+    console.log('JwtToken', token);
 
     return this.presenter.show(result);
   }

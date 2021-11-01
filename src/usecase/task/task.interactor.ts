@@ -5,6 +5,7 @@ import { TaskUseCase } from './task.usecase';
 import { TaskRepository } from 'domain/repository/task.repository';
 import { InjectRepository } from '@nestjs/typeorm';
 import { TaskLocalRepository } from 'infrastructure/persistence/local/typeorm/repository/task.repository';
+import { User } from 'domain/entity/user.entity';
 
 @Injectable()
 export class TaskInteractor implements TaskUseCase {
@@ -29,8 +30,8 @@ export class TaskInteractor implements TaskUseCase {
     return result;
   }
 
-  createTask(task: Task): Promise<Task> {
-    return this.taskRepository.createTask(task);
+  createTask(task: Task, user: User): Promise<Task> {
+    return this.taskRepository.createTask(task, user);
   }
 
   async deleteTaskById(id: string): Promise<boolean> {

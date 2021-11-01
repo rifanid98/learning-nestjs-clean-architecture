@@ -7,12 +7,17 @@ import {
   Param,
   ParseUUIDPipe,
   Post,
+  UseGuards,
 } from '@nestjs/common';
 import { Task } from 'domain/entity/task.entity';
 import { TaskUseCase } from 'usecase/task/task.usecase';
 import { TaskCreateDto } from 'domain/dto/task.dto';
+import { AuthGuard } from '@nestjs/passport';
+import { GetUser } from '../../common/decorator';
+import { User } from '../../domain/entity/user.entity';
 
 @Controller('tasks')
+@UseGuards(AuthGuard('jwt'))
 export class TaskHandler {
   constructor(@Inject('TaskUseCase') private useCase: TaskUseCase) {}
 
@@ -27,8 +32,11 @@ export class TaskHandler {
   }
 
   @Post()
-  createTask(@Body() task: TaskCreateDto): Promise<Task> {
-    return this.useCase.createTask(task);
+  createTask(
+    @Body() task: TaskCreateDto,
+    @GetUser() user: User,
+  ): Promise<Task> {
+    return this.useCase.createTask(task, user);
   }
 
   @Delete('/:id')

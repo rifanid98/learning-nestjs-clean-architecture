@@ -1,6 +1,7 @@
 import { TaskRepository } from 'domain/repository/task.repository';
 import { DeleteResult, EntityRepository, Repository } from 'typeorm';
 import { Task } from '../entity/task.entity';
+import { User } from '../entity/user.entity';
 
 @EntityRepository(Task)
 export class TaskLocalRepository
@@ -15,8 +16,12 @@ export class TaskLocalRepository
     return this.findOne({ id: id });
   }
 
-  createTask(task: Task): Promise<Task> {
-    const payload = this.create(task);
+  createTask(task: Task, user: User): Promise<Task> {
+    const payload = this.create({
+      ...task,
+      user,
+    });
+
     return this.save(payload);
   }
 

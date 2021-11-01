@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TaskModule } from './task.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth.module';
+import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { AuthModule } from './auth.module';
       database: 'portal_nashtanet',
       autoLoadEntities: true,
       synchronize: true,
+      namingStrategy: new SnakeNamingStrategy(),
     }),
   ],
   controllers: [],

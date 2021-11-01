@@ -1,6 +1,6 @@
-import { User } from 'domain/entity/user.entity';
 import { UserRepository } from 'domain/repository/user.repository';
-import { DeleteResult, EntityRepository, Repository } from 'typeorm';
+import { EntityRepository, Repository } from 'typeorm';
+import { User } from '../entity/user.entity';
 
 @EntityRepository(User)
 export class UserLocalRepository
@@ -13,6 +13,10 @@ export class UserLocalRepository
 
   getAllUsers(): Promise<User[]> {
     return Promise.resolve([]);
+  }
+
+  getOneUser(user: User): Promise<User> {
+    return this.findOne(user);
   }
 
   getUserById(id: string): Promise<User> {
