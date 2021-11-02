@@ -9,8 +9,6 @@ import { User } from 'domain/entity/user.entity';
 
 @Injectable()
 export class TaskInteractor implements TaskUseCase {
-  private tasks: Task[] = [];
-
   constructor(
     @Inject('TaskPresenterInterface')
     private presenter: TaskPresenterInterface,

@@ -28,6 +28,10 @@ export class AuthHandler {
     return this.useCase.signup(auth);
   }
 
+  /**
+   * Authenticate code from google authenticator
+   * @param req
+   */
   @Post('/authenticate')
   @UseGuards(AuthGuard('jwt'))
   authenticate(@Req() req): Promise<string> {

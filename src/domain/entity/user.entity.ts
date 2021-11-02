@@ -14,4 +14,5 @@ export class User implements UserEntityInterface {
   id?: string;
   email?: string;
   password?: string;
+  token?: string;
 }

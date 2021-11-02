@@ -47,9 +47,11 @@ export class AuthInteractor implements AuthUseCase {
     }
 
     const token = this.jwt.sign(this.presenter.json(result));
-    console.log('JwtToken', token);
 
-    return this.presenter.show(result);
+    return {
+      ...this.presenter.show(result),
+      token,
+    };
   }
 
   authenticate(code: string): Promise<string> {

@@ -17,12 +17,8 @@ export class TaskLocalRepository
   }
 
   createTask(task: Task, user: User): Promise<Task> {
-    const payload = this.create({
-      ...task,
-      user,
-    });
-
-    return this.save(payload);
+    task.user = user;
+    return this.save(this.create(task));
   }
 
   async deleteTaskById(id: string): Promise<DeleteResult> {

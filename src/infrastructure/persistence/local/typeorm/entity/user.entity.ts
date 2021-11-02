@@ -13,6 +13,6 @@ export class User implements UserEntityInterface {
   @Column()
   password?: string;
 
-  @OneToMany((_type) => Task, (task) => task.user, { eager: true })
+  @OneToMany((_type) => Task, (task) => task.user, { eager: false })
   tasks: Task[];
 }
