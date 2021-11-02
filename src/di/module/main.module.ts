@@ -4,7 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth.module';
 import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { configValidationSchema } from 'common/schema';
+import { configValidationSchema } from 'sharedkernel/schema';
 
 @Module({
   imports: [

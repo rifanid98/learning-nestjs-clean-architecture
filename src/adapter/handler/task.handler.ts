@@ -13,7 +13,7 @@ import { Task } from 'domain/entity/task.entity';
 import { TaskUseCase } from 'usecase/task/task.usecase';
 import { TaskCreateDto } from 'domain/dto/task.dto';
 import { AuthGuard } from '@nestjs/passport';
-import { GetUser } from 'common/decorator';
+import { GetUser } from 'sharedkernel/decorator';
 import { User } from 'domain/entity/user.entity';
 
 @Controller('tasks')

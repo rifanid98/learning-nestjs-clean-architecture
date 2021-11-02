@@ -9,7 +9,7 @@ import {
 } from '@nestjs/common';
 import { AuthUseCase } from 'usecase/auth/auth.usecase';
 import { AuthSignInDto, AuthSignUpDto } from 'domain/dto/auth.dto';
-import { CustomExceptionFilter } from 'common/exception-filter';
+import { CustomExceptionFilter } from 'sharedkernel/exception-filter';
 import { User } from 'domain/entity/user.entity';
 import { AuthGuard } from '@nestjs/passport';
 

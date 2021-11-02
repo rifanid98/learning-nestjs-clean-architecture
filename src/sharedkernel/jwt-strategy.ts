@@ -4,7 +4,7 @@ import { ExtractJwt, Strategy } from 'passport-jwt';
 import { UserRepository } from 'domain/repository/user.repository';
 import { InjectRepository } from '@nestjs/typeorm';
 import { UserLocalRepository } from 'infrastructure/persistence/local/typeorm/repository/user.repository';
-import { JwtPayload } from 'common/type';
+import { JwtPayload } from 'sharedkernel/type';
 import { User } from 'domain/entity/user.entity';
 import { ConfigService } from '@nestjs/config';
 

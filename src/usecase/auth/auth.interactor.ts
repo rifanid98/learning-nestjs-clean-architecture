@@ -9,7 +9,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { AuthPresenterInterface } from 'adapter/presenter/auth.presenter';
 import { AuthSignInDto, AuthSignUpDto } from 'domain/dto/auth.dto';
 import { User } from 'domain/entity/user.entity';
-import { hash, verify } from 'common/hash';
+import { hash, verify } from 'sharedkernel/hash';
 import { AuthLocalRepository } from 'infrastructure/persistence/local/typeorm/repository/auth.repository';
 import { AuthRepository } from 'domain/repository/auth.repository';
 import { JwtService } from '@nestjs/jwt';

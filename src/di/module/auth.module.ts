@@ -5,7 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthLocalRepository } from 'infrastructure/persistence/local/typeorm/repository/auth.repository';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
-import { JwtStrategy } from 'common/jwt-strategy';
+import { JwtStrategy } from 'sharedkernel/jwt-strategy';
 import { UserLocalRepository } from 'infrastructure/persistence/local/typeorm/repository/user.repository';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 

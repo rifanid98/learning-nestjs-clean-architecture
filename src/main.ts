@@ -1,7 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { MainModule } from 'di/module/main.module';
 import { ValidationPipe } from '@nestjs/common';
-import { TransformInterceptor } from './common/interceptor';
+import { TransformInterceptor } from './sharedkernel/interceptor';
 
 async function bootstrap() {
   const app = await NestFactory.create(MainModule);
